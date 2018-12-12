@@ -13,15 +13,11 @@ public class Soru33 {
 			for (int j = 1; j <= i / 2; j++) {
 				if(i % j == 0) {
 					 mukemmelSayi += j;
-					if (mukemmelSayi == i) {
-						System.out.println(mukemmelSayi);
-					}
 				}
-				
 			}
-			
+			if (mukemmelSayi == i) {
+				System.out.println(mukemmelSayi);
+			}
 		}
 	}
-
 }
-cevapta hata var

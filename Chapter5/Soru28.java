@@ -19,88 +19,115 @@ public class Soru28 {
 		System.out.print("yili giriniz ");
 		int yil = input.nextInt();
 
-		System.out.print("yilin ilk gununu giriniz (1- pazar, 2- pazartesi, 3- sali, "
-				+ "4- carsamba, 5- persembe, 6- cuma, 7- cumartesi) :");
-		int yilinIlkGunu = input.nextInt();
+		System.out.print("yilin ilk gununu giriniz (0- pazar, 1- pazartesi, 2- sali, "
+				+ "3- carsamba, 4- persembe, 5- cuma, 6- cumartesi) :");
+		int gun = input.nextInt();
 
-		boolean artikYilMi = false;
-		String yazilacakCitki = "";
-		int yildakiGunSayisi = 365;
+		boolean artikYilMi = ((yil % 4 == 0 && yil % 100 != 0) || yil % 400 == 0);
 
-		if ((yil % 4 == 0 && yil % 100 != 0) || yil % 400 == 0) {
-			artikYilMi = true;
-		}
+		for (int ay = 0; ay < 12; ay++) {
+			String gunYazi = "";
+			String ayYazi = "";
 
-		for (int i = 1; i <= 12; i++) {
-			yazilacakCitki = "";
-
-			switch (i) {
+			switch (gun) {
 			case 0:
-				yazilacakCitki += "1 Ocak";
+				gunYazi = "Pazar";
 				break;
 
 			case 1:
-				yazilacakCitki += "1 Subat";
+				gunYazi = "Pazartesi";
 				break;
 
 			case 2:
-				yazilacakCitki += "1 Mart";
+				gunYazi = "Sali";
 				break;
 
 			case 3:
-				yazilacakCitki += "1 Nisan";
+				gunYazi = "Carsamba";
 				break;
 
 			case 4:
-				yazilacakCitki += "1 Mayis";
+				gunYazi = "Persembe";
 				break;
 
 			case 5:
-				yazilacakCitki += "1 Haziran";
+				gunYazi = "Cuma";
 				break;
 
 			case 6:
-				yazilacakCitki += "1 Temmuz";
+				gunYazi = "Cumartesi";
+				break;
+
+			}
+
+			switch (ay) {
+			case 0:
+				ayYazi = "1 Ocak";
+				gun = (gun + 31) % 7;
+				break;
+
+			case 1:
+				ayYazi = "1 Subat";
+				if (artikYilMi)
+					gun = (gun + 29) % 7;
+				else
+					gun = (gun + 28) % 7;
+				break;
+
+			case 2:
+				ayYazi = "1 Mart";
+				gun = (gun + 31) % 7;
+				break;
+
+			case 3:
+				ayYazi = "1 Nisan";
+				gun = (gun + 30) % 7;
+				break;
+
+			case 4:
+				ayYazi = "1 Mayis";
+				gun = (gun + 31) % 7;
+				break;
+
+			case 5:
+				ayYazi = "1 Haziran";
+				gun = (gun + 30) % 7;
+				break;
+
+			case 6:
+				ayYazi = "1 Temmuz";
+				gun = (gun + 31) % 7;
 				break;
 
 			case 7:
-				yazilacakCitki += "1 Agustos";
+				ayYazi = "1 Agustos";
+				gun = (gun + 31) % 7;
 				break;
 
 			case 8:
-				yazilacakCitki += "1 Eylul";
+				ayYazi = "1 Eylul";
+				gun = (gun + 30) % 7;
 				break;
 
 			case 9:
-				yazilacakCitki += "1 Ekim";
+				ayYazi = "1 Ekim";
+				gun = (gun + 31) % 7;
 				break;
 
 			case 10:
-				yazilacakCitki += "1 Kasim";
+				ayYazi = "1 Kasim";
+				gun = (gun + 30) % 7;
 				break;
 
 			case 11:
-				yazilacakCitki += "1 Aralik";
+				ayYazi = "1 Aralik";
+				// burda bir sonraki ayin baslangic gununu hesaplamak GEREKMIYOR
 				break;
 			}
-			
-			yazilacakCitki += yil + " yili ilk gunu";
-			
-			yilinIlkGunu = (yilinIlkGunu + yildakiGunSayisi) % 7;
-			
-			if (!artikYilMi) {
-				switch (yilinIlkGunu) {
-				case 0:
-					
-					break;
 
-				default:
-					break;
-				}
-			}
+			System.out.println(ayYazi + ", " + yil + " " + gunYazi);
 
 		}
 
 	}
-tamamlamadim baglanti kurmada sikinti sayadim
 }

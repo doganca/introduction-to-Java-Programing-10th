@@ -137,6 +137,6 @@ public class Soru13 {
 	    // Display the result
 	    System.out.println("Tax is " + (int)(tax * 100) / 100.0);
 	  }
-	a
+	//sayilar duzeltilmedi
 
 }

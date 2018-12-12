@@ -2,28 +2,18 @@ package Chapter5;
 
 public class Soru19 {
 	public static void main(String[] args) {
-		for (int i = 1; i <= 128; i += i) {
-			for (int j = i; j < 128; j+= j) {
-				System.out.print(j+ " ");
-			}
-			for (int j = i; j >= 1; j -= i) {
-				System.out.printf("%-1d", j);
-				while (j >= 1) {
-					j /= 2;
-					if (j > 0)
-						if (j < 10) {
-							System.out.printf("%2d", j);
-						} else if (j > 10 && j < 100) {
-							System.out.printf("%3d", j);
-						}
-				}
 
+		for (int i = 0; i < 8; i++) {
+			for (int j = 8 - 1 - i; j > 0; j--) {
+				System.out.print("    ");
 			}
-
+			for (int j = 0; j < i; j++) {
+				System.out.printf("%4d", (int) Math.pow(2, j));
+			}
+			for (int j = i; j >= 0; j--) {
+				System.out.printf("%4d", (int) Math.pow(2, j));
+			}
 			System.out.println();
-
 		}
-		
 	}
 }
-aa
