@@ -14,7 +14,7 @@ public class Soru47 {
 		for (int i = 0; i < isbnNo.length(); i++) {
 
 			if (i % 2 != 0) {
-				d13 += 10 - (Integer.parseInt(isbnNo.charAt(i)+ ""));
+				d13 += 10 - (Integer.parseInt(isbnNo.charAt(i) + ""));
 			} else {
 				d13 += 10 - (3 * Integer.parseInt(isbnNo.charAt(i) + ""));
 			}
