@@ -1,5 +1,6 @@
 package Chapter5;
 
 public class Soru29 {
-aa
+
 }
+// TODO: 2019-01-29 yapilack

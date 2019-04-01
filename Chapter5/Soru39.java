@@ -6,7 +6,7 @@ public class Soru39 {
 		double hedeflenenYillikKazanc = 30_000;
 		
 		while(alinanMaas >= hedeflenenYillikKazanc) {
-			aa
+			// TODO: 2019-01-29  yapilcak
 		}
 
 	}

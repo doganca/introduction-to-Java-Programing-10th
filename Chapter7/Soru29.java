@@ -9,100 +9,80 @@ public class Soru29 {
 	 */
 
 	public static void main(String[] args) {
-		String[] iskembilDestesiKartlari = { "as", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Vale", "Kiz",
-				"Papaz" };
+		int[] deste = desteyeSayiAta(52);
 
-		int[] iskembilDestesi = kartlariKaristir();
+		int sayac = 0;
 
-		oyunuOyna(iskembilDestesiKartlari, iskembilDestesi);
-
-	}
-
-	public static int[] kartlariKaristir() {
-		int[] deste = destegeSayilariEkle();
-		for (int i = 0; i < deste.length; i++) {
-			int rassalIndeks = (int) (Math.random() * deste.length);
-
-			int temp = deste[i];
-			deste[i] = deste[rassalIndeks];
-			deste[rassalIndeks] = temp;
-		}
-
-		return deste;
-	}
-
-	private static int[] destegeSayilariEkle() {
-		int deste[] = new int[52];
-		for (int i = 0; i < deste.length; i++) {
-			deste[i] = i;
-		}
-		return deste;
-	}
-
-	private static void oyunuOyna(String[] iskembilDestesiKartlari, int[] iskembilDestesi) {
-		int kartToplami = 0;
-		int kartCekmeSayisi = 0;
-
-		while (kartToplami >= 24) {
-			kartToplami += kartDegeri(iskembilDestesiKartlari, iskembilDestesi);
-			kartCekmeSayisi++;
-		}
+		do {
+			desteyiKaristir(deste);
+			sayac++;
+		} while (kartCek(deste) != 24);
 		
-		sonucuYazdir(kartToplami,kartCekmeSayisi);
+		System.out.println("24 ulasmak icin " + sayac + " kez 4 lu kart cekildi");
 
 	}
 
-	private static void sonucuYazdir(int kartToplami, int kartCekmeSayisi) {
-		System.out.println("kart toplami : " + kartToplami + " kart cekme sayisi : " + kartCekmeSayisi
-				);
-	}
-
-	private static int kartDegeri(String[] iskembilDestesiKartlari, int[] iskembilDestesi) {
-		int kartDegeri = 0;
-		String rasgeleDortKartCek = rasgeleDortKartCek(iskembilDestesiKartlari, iskembilDestesi);
-		kartDegeri += kartDegerleriTopla(rasgeleDortKartCek);
-		return kartDegeri;
-	}
-
-	public static String rasgeleDortKartCek(String[] iskembilDestesiKartlari, int[] iskembilDestesi) {
-		String rasgeleKartCek = "";
-		for (int i = 0; i < 4; i++) {
-			return rasgeleKartCek = iskembilDestesiKartlari[iskembilDestesi[i] % 13];
+	private static int[] desteyeSayiAta(int i) {
+		int[] deste = new int[i];
+		for (int j = 0; j < deste.length; j++) {
+			deste[j] = j;
 		}
-		return rasgeleKartCek;
+		return deste;
 	}
 
-	private static int kartDegerleriTopla(String rasgeleDortKartCek) {
+	private static void desteyiKaristir(int[] deste) {
+		for (int i = 0; i < deste.length; i++) {
+			int random = (int) (Math.random() * deste.length);
+			int temp = deste[i];
+			deste[i] = deste[random];
+			deste[random] = temp;
+		}
+	}
+
+	private static int kartCek(int[] deste) {
 		int toplam = 0;
-		if (rasgeleDortKartCek.equals("As")) {
-			toplam += 1;
-		} else if (rasgeleDortKartCek.equals("2")) {
-			toplam += 2;
-		} else if (rasgeleDortKartCek.equals("3")) {
-			toplam += 3;
-		} else if (rasgeleDortKartCek.equals("4")) {
-			toplam += 4;
-		} else if (rasgeleDortKartCek.equals("5")) {
-			toplam += 5;
-		} else if (rasgeleDortKartCek.equals("6")) {
-			toplam += 6;
-		} else if (rasgeleDortKartCek.equals("7")) {
-			toplam += 7;
-		} else if (rasgeleDortKartCek.equals("8")) {
-			toplam += 8;
-		} else if (rasgeleDortKartCek.equals("9")) {
-			toplam += 9;
-		} else if (rasgeleDortKartCek.equals("10")) {
-			toplam += 10;
-		} else if (rasgeleDortKartCek.equals("Vale")) {
-			toplam += 11;
-		} else if (rasgeleDortKartCek.equals("Kiz")) {
-			toplam += 12;
-		} else if (rasgeleDortKartCek.equals("Papaz")) {
-			toplam += 13;
+		String[] sayi = { "As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Vale", "Kiz", "Papaz" };
+		for (int i = 0; i < 4; i++) {
+			int random = (int) (Math.random() * 52);
+			String cekilenKart = sayi[random % 13];
+			int kartDegeri = kartDegeriBul(cekilenKart);
+			toplam += kartDegeri;
 		}
 
 		return toplam;
+
 	}
-aa
+
+	private static int kartDegeriBul(String cekilenKart) {
+		switch (cekilenKart) {
+		case "As":
+			return 1;
+		case "2":
+			return 2;
+		case "3":
+			return 3;
+		case "4":
+			return 4;
+		case "5":
+			return 5;
+		case "6":
+			return 6;
+		case "7":
+			return 7;
+		case "8":
+			return 8;
+		case "9":
+			return 9;
+		case "10":
+			return 10;
+		case "Vale":
+			return 11;
+		case "Kiz":
+			return 12;
+		case "Papaz":
+			return 13;
+
+		}
+		return 0;
+	}
 }

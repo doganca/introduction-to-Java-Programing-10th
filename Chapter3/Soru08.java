@@ -13,17 +13,15 @@ public class Soru08 {
 
 		int temp;
 
-		if (sayi2 < sayi1 || sayi3 < sayi1) {
-			if (sayi2 < sayi1) {
-				temp = sayi1;
-				sayi1 = sayi2;
-				sayi2 = temp;
-			}
-			if (sayi3 < sayi1) {
-				temp = sayi1;
-				sayi1 = sayi3;
-				sayi3 = temp;
-			}
+		if (sayi2 < sayi1) {
+			temp = sayi1;
+			sayi1 = sayi2;
+			sayi2 = temp;
+		}
+		if (sayi3 < sayi1) {
+			temp = sayi1;
+			sayi1 = sayi3;
+			sayi3 = temp;
 		}
 		if (sayi3 < sayi2) {
 			temp = sayi3;

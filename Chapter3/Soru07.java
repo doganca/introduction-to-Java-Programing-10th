@@ -27,43 +27,44 @@ public class Soru07 {
 		remainingAmount = remainingAmount % 5; // 1
 
 		// Find the number of pennies in the remaining amount
-		int numberOfPennies = remainingAmount; // 
-		
+		int numberOfPennies = remainingAmount; //
+
 		System.out.println("Your amount " + amount + " consists of");
-		if(numberOfOneDollars >= 2) {
+		if (numberOfOneDollars >= 2) {
 			System.out.println("    " + numberOfOneDollars + " dollars");
-		}else {
+		} else if (numberOfOneDollars == 1) {
+			System.out.println("    " + numberOfOneDollars + " dollar");
+		} else {
 			System.out.println("    " + numberOfOneDollars + " dollar");
 		}
-		if(numberOfQuarters >= 2) {
+		if (numberOfQuarters >= 2) {
 			System.out.println("    " + numberOfQuarters + " quarters ");
-		}else {
+		} else if (numberOfQuarters == 1) {
 			System.out.println("    " + numberOfQuarters + " quarter ");
+		} else {
+			System.out.println("    " + numberOfQuarters + " quarter");
 		}
-		if(numberOfDimes >= 2) {
+		if (numberOfDimes >= 2) {
 			System.out.println("    " + numberOfDimes + " dimes");
-		}else {
+		} else if (numberOfDimes == 1) {
+			System.out.println("    " + numberOfDimes + " dime");
+		} else {
 			System.out.println("    " + numberOfDimes + " dime");
 		}
-		if(numberOfNickels >= 2) {
+		if (numberOfNickels >= 2) {
 			System.out.println("    " + numberOfNickels + " nickels");
-		}else {
+		} else if (numberOfNickels == 1) {
+			System.out.println("    " + numberOfNickels + " nickel");
+		} else {
 			System.out.println("    " + numberOfNickels + " nickel");
 		}
-		if(numberOfPennies >= 2) {
+		if (numberOfPennies >= 2) {
 			System.out.println("    " + numberOfPennies + " pennies");
-		}
-		else {
+		} else if (numberOfPennies == 1) {
+			System.out.println("    " + numberOfPennies + " pennie");
+		} else {
 			System.out.println("    " + numberOfPennies + " pennie");
 		}
-
-
-		
-		
-		
-		
-		
-		
 	}
 
 }

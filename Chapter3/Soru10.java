@@ -18,9 +18,6 @@ public class Soru10 {
 		}else {
 			System.out.println("yanlis cevap ,  cevap :" + sonuc);
 		}
-		
-		
-		
 	}
 
 }
